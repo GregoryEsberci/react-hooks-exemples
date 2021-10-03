@@ -1,0 +1,11 @@
+body {
+  background-color: #333333;
+  color: rgba(255, 255, 255, 0.87);
+  margin: 0;
+}
+
+.page-container {
+  margin: 1em;  
+  margin-left: 21rem; /* 20em = side-bar width */
+  width: fit-content;
+}
