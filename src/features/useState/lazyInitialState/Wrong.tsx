@@ -9,6 +9,9 @@ import { getRandomNumbers, min, sum } from '../../../utils';
   https://pt-br.reactjs.org/docs/hooks-reference.html#lazy-initial-state
 */
 
+// Se a página travar diminua o valor, a ideia é deixar ela lenta mesmo :p
+const max = 50e5;
+
 const WrongLazyInitialState = () => {
   /*
     O Function Component (WrongLazyInitialState) é executado para aplicar
@@ -16,11 +19,8 @@ const WrongLazyInitialState = () => {
     executado diretamente dentro da função vai ser re-declarado e re-executado,
     isso inclui a função `getRandomNumbers` utilizada no `initialState`, ou seja,
     `getRandomNumbers(...)` vai ser executado a cada re-render
-
-    se a página travar diminua o valor passado para o getRandomNumbers,
-    a ideia é deixar a página lenta mesmo :p
   */
-  const [randomNumbers, setRandomNumbers] = useState(getRandomNumbers(10e6));
+  const [randomNumbers, setRandomNumbers] = useState(getRandomNumbers(max));
 
   /*
     `minNumber` vai ser re-declarado a cada re-render
@@ -39,9 +39,10 @@ const WrongLazyInitialState = () => {
       <p>Mínimo: {minNumber}</p>
 
       <span className="p-float-label mb-2">
-        <InputNumber id="numbers-size" onChange={(e) => setRandomNumbers(getRandomNumbers(e.value))} value={randomNumbers.length} />
+        <InputNumber max={max} id="numbers-size" onChange={(e) => setRandomNumbers(getRandomNumbers(e.value))} value={randomNumbers.length} />
         <label htmlFor="numbers-size">Quantidade de números</label>
       </span>
+      <small>O valor máximo é: {max.toLocaleString()}</small>
     </>
   );
 };

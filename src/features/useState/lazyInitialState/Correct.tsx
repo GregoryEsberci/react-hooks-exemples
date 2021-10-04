@@ -6,6 +6,8 @@ import { getRandomNumbers, min, sum } from '../../../utils';
   https://pt-br.reactjs.org/docs/hooks-reference.html#lazy-initial-state
 */
 
+const max = 50e5;
+
 const CorrectLazyInitialState = () => {
   /*
     Alteração:
@@ -13,7 +15,7 @@ const CorrectLazyInitialState = () => {
 
     Dessa forma o `getRandomNumbers` vai ser executado apenas uma vez no `initialState`
   */
-  const [randomNumbers, setRandomNumbers] = useState(() => getRandomNumbers(10e6));
+  const [randomNumbers, setRandomNumbers] = useState(() => getRandomNumbers(max));
 
   /*
     Ainda vai ser executado a cada re-renderização, isso poderia ser corrigido com `useMemo`
@@ -26,9 +28,10 @@ const CorrectLazyInitialState = () => {
       <p>Mínimo: {minNumber}</p>
 
       <span className="p-float-label mb-2">
-        <InputNumber id="numbers-size" onChange={(e) => setRandomNumbers(getRandomNumbers(e.value))} value={randomNumbers.length} />
+        <InputNumber max={max} id="numbers-size" onChange={(e) => setRandomNumbers(getRandomNumbers(e.value))} value={randomNumbers.length} />
         <label htmlFor="numbers-size">Quantidade de números</label>
       </span>
+      <small>O valor máximo é: {max.toLocaleString()}</small>
     </>
   );
 };
