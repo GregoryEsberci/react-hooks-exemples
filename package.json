@@ -1,7 +1,8 @@
 {
-  "name": "react-hooks-test",
+  "name": "react-hooks-exemples",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "dependencies": {
     "primeflex": "^3.0.1",
     "primeicons": "^4.1.0",
