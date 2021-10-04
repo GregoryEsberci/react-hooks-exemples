@@ -1,8 +1,8 @@
 import NavBarLink from '../../components/navBarLink';
 import Feature from '../feature';
 import Counter from './Counter';
-import CorrectLazyInitialState from './lazyInitialState/correct';
-import WrongLazyInitialState from './lazyInitialState/wrong';
+import CorrectLazyInitialState from './lazyInitialState/Correct';
+import WrongLazyInitialState from './lazyInitialState/Wrong';
 import NoPrimitiveValue from './NoPrimitiveValue';
 import RandomNumberGenerator from './RandomNumberGenerator';
 
