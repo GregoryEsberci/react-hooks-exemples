@@ -9,6 +9,9 @@ const Routes = () => (
     <Switch>
       {/* eslint-disable-next-line react/no-array-index-key */}
       {routes.map((props, index) => <Route {...props} key={index} />)}
+      <Route>
+        <h1>404</h1>
+      </Route>
     </Switch>
   </Card>
 );
